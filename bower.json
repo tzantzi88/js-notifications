@@ -1,0 +1,26 @@
+{
+  "name": "tzantzi-js-notifications",
+  "description": "A simple javascript notifications plugin",
+  "main": [
+    "dist/tzantzi_notifications.min.js",
+    "dist/tzantzi_notifications.css"
+  ],
+  "moduleType": [],
+  "keywords": [
+    "javascript",
+    "alert",
+    "notifications"
+  ],
+  "authors": [
+    "tzantzi"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/tzantzi88/js-notifications",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

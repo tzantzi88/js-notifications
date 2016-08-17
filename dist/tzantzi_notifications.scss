@@ -1,0 +1,180 @@
+$text-color: #333333;
+$border-color: #aeaeae;
+$close-color: #000000;
+$close-hover-color: #999999;
+
+$success: #dff0d8;
+$danger: #f2dede;
+$warning: #fcf8e3;
+$info: #d9edf7;
+
+$font-size: 0.9em;
+
+.tzantzi_notifications {
+    box-sizing: border-box;
+    position: fixed;
+    left: auto;
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+
+    &.bottom-right {
+        top: auto;
+        left: auto;
+        bottom: 20px;
+        right: 20px;
+    }
+    &.bottom-left {
+        top: auto;
+        left: 20px;
+        bottom: 20px;
+        right: auto;
+    }
+    &.top-right {
+        top: 20px;
+        left: auto;
+        bottom: auto;
+        right: 20px;
+    }
+    &.top-left {
+        top: 20px;
+        left: 20px;
+        bottom: auto;
+        right: auto;
+    }
+    &.center {
+        top: 25%;
+        left: 50%;
+        bottom: auto;
+        right: auto;
+        margin-left: -135px;
+    }
+
+    .tzantzi_notifications_wrapper {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+        max-height: 99999px;
+        display: block;
+        transition: all 0.4s ease;
+
+        .tzantzi_item {
+            clear: both;
+            line-height: $font-size * 2;
+            height: auto;
+            font-size: $font-size;
+            padding: 0 0 0 45px;
+            border-radius: 4px;
+            margin: 3px 0 0 0;
+            max-height: 100px;
+            transform: scale(1, 1);
+            opacity: 1;
+            color: $text-color;
+            position: relative;
+            width: 275px;
+            float: right;
+            display: inline-block;
+            background-color: $success;
+            transition: all 0.4s ease;
+
+            /* These are technically the same, but use both */
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+
+            -ms-word-break: break-all;
+            /* This is the dangerous one in WebKit, as it breaks things wherever */
+            word-break: break-all;
+            /* Instead use this non-standard one: */
+            word-break: break-word;
+
+            /* Adds a hyphen where the word breaks, if supported (No Blink) */
+            -ms-hyphens: auto;
+            -moz-hyphens: auto;
+            -webkit-hyphens: auto;
+            hyphens: auto;
+
+            &:before {
+                content: "\2716";
+                font-size: $font-size * 2;
+                min-height: 50px;
+                height: 100%;
+                left: 0;
+                line-height: 50px;
+                position: absolute;
+                text-align: center;
+                width: 35px;
+                font-weight: bold;
+                color: $text-color;
+                border-right: 1px solid $border-color;
+            }
+
+            &.remove {
+                opacity: 0;
+                overflow: hidden;
+                border: 0;
+                transform: scale(0, 0);
+                max-height: 0;
+            }
+
+            &.success {
+                background-color: $success;
+
+                &:before {
+                    content: "\2714";
+                }
+            }
+
+            &.danger {
+                background-color: $danger;
+
+                &:before {
+                    content: '\2620';
+                }
+            }
+
+            &.warning {
+                background-color: $warning;
+
+                &:before {
+                    content: "\26D4";
+                }
+            }
+
+            &.info {
+                background-color: $info;
+
+                &:before {
+                    content: "\2757";
+                }
+            }
+
+            .message {
+                float: left;
+                padding: 12px 0;
+                max-width: 195px;
+                font-weight: bold;
+                letter-spacing: 0.2px;
+            }
+
+            .tzantzi_close_notification {
+                cursor: pointer;
+                float: right;
+                line-height: 50px;
+                min-height: 50px;
+                height: 100%;
+                vertical-align: middle;
+                width: 34px;
+                color: $close-color;
+                text-align: center;
+                font-size: $font-size * 1.4;
+                transition: all 0.4s ease;
+
+                :hover {
+                    color: $close-hover-color;
+                }
+            }
+        }
+    }
+}
