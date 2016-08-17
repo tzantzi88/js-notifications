@@ -6,7 +6,6 @@ You can use it to show php messages as well (for example session messages);
 
 Note: this plugin relies on javascript and css
 
-
 Notification options
 ----------------------------
 
