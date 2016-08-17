@@ -1,5 +1,6 @@
 {
   "name": "tzantzi-js-notifications",
+  "version": "1.0",
   "description": "A simple javascript notifications plugin",
   "main": [
     "dist/tzantzi_notifications.min.js",
