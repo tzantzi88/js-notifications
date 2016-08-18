@@ -25,11 +25,11 @@ bower install tzantzi-js-notifications
 How to use
 ----------------------------
 ```
-Default: showNotification();
+Default: tzShowNotification();
 
-All options enabled: showNotification('Centered Message', 'info', 'center');
+All options enabled: tzShowNotification('Centered Message', 'info', 'center');
 
-<a href="#" onclick="showNotification(); return false;">Default: showNotification();</a>
+<a href="#" onclick="tzShowNotification(); return false;">Default: tzShowNotification();</a>
 ```
 
 Notification options

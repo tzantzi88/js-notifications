@@ -1,11 +1,11 @@
-var messages = [];
-var current_notifications = 0;
-var fade_time = 3000;
-var position = 'bottom-right';
-var current_position = position;
-var default_type = 'success';
-var default_message = 'Operation completed successfully';
-var positions = [];
+var messages = [],
+    current_notifications = 0,
+    fade_time = 3000,
+    position = 'bottom-right',
+    current_position = position,
+    default_type = 'success',
+    default_message = 'Operation completed successfully',
+    positions = [];
 
 /**
  *
@@ -13,27 +13,27 @@ var positions = [];
  * @param message_type
  * @param message_position
  */
-function showNotification(message, message_type, message_position){
+function tzShowNotification(message, message_type, message_position){
     var type = default_type;
     var msg = default_message;
     if (message) { msg = message; }
     if (message_type) { type = message_type; }
     if (message_position) { current_position = message_position; }
     messages.push({ type: type, message: msg, position: current_position });
-    showNotifications();
+    tzShowNotifications();
 }
 
 window.addEventListener('load',function(){
-    showNotifications();
+    tzShowNotifications();
 });
 
-function showNotifications() {
-    checkWrapper();
+function tzShowNotifications() {
+    tzCheckWrapper();
     if(typeof messages != 'undefined'){
-        appendNotification();
+        tzAppendNotification();
     }
 }
-function checkWrapper(pos) {
+function tzCheckWrapper(pos) {
     if (!pos) {
         pos = current_position;
         current_position = position;
@@ -44,7 +44,7 @@ function checkWrapper(pos) {
         positions.push(pos);
     }
 }
-function appendNotification() {
+function tzAppendNotification() {
     if (messages[0]) {
         current_notifications++;
         var type = 'info';
@@ -55,7 +55,7 @@ function appendNotification() {
         notification += '<span class="tzantzi_close_notification">&#x2716</span>';
         notification += '</div>';
 
-        var wrapper = getMessageContainer();
+        var wrapper = tzGetMessageContainer();
 
         if (position.indexOf("top") != -1 || position.indexOf("center") != -1) {
             wrapper.innerHTML += notification;
@@ -63,11 +63,11 @@ function appendNotification() {
             wrapper.innerHTML = notification + wrapper.innerHTML;
         }
 
-        animateNotification(current_notifications);
+        tzAnimateNotification(current_notifications);
         messages.shift();
 
         if (messages.length) {
-            appendNotification();
+            tzAppendNotification();
         }
 
 
@@ -76,14 +76,14 @@ function appendNotification() {
         for(var i=0;i<element.length;i++){
             element[i].addEventListener('click',function (e) {
                 var id = this.parentNode.getAttribute('id').substr(6);
-                removeNotification(id);
+                tzRemoveNotification(id);
             },false);
         }
     }
 }
 
-function getMessageContainer() {
-    checkWrapper(messages[0].position);
+function tzGetMessageContainer() {
+    tzCheckWrapper(messages[0].position);
 
     var position_class = '';
     if (messages[0].position) {
@@ -93,17 +93,17 @@ function getMessageContainer() {
     return container.childNodes[0];
 }
 
-function animateNotification(id) {
+function tzAnimateNotification(id) {
     if (id) {
         setTimeout(function () {
             document.getElementById('notif-' + id).className = document.getElementById('notif-' + id).className.replace(/\bremove\b/,'');
         }, 100);
         setTimeout(function () {
-            removeNotification(id);
+            tzRemoveNotification(id);
         }, fade_time);
     }
 }
-function removeNotification(id) {
+function tzRemoveNotification(id) {
     if (id) {
         var elem = document.getElementById('notif-' + id);
         if (elem != null) {
