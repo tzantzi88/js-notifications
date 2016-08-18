@@ -45,7 +45,7 @@ Message positioning: available options: 'bottom-right' / 'bottom-left' / 'top-ri
 Default options
 ----------------------------
 
-var fade_time = 5000; -> Time in ms it takes the message to dissapear
+var fade_time = 3000; -> Time in ms it takes the message to dissapear
 
 var position = 'bottom-right'; -> Default message position
 
