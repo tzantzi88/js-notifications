@@ -68,7 +68,7 @@ $font-size: 0.9em;
             padding: 0 0 0 45px;
             border-radius: 4px;
             margin: 3px 0 0 0;
-            max-height: 100px;
+            max-height: 200px;
             transform: scale(1, 1);
             opacity: 1;
             color: $text-color;
@@ -84,10 +84,10 @@ $font-size: 0.9em;
             word-wrap: break-word;
 
             -ms-word-break: break-all;
-            /* This is the dangerous one in WebKit, as it breaks things wherever */
-            word-break: break-all;
+            /*!* This is the dangerous one in WebKit, as it breaks things wherever *!
+            word-break: break-all;*/
             /* Instead use this non-standard one: */
-            word-break: break-word;
+            /*word-break: break-word;*/
 
             /* Adds a hyphen where the word breaks, if supported (No Blink) */
             -ms-hyphens: auto;
@@ -155,7 +155,6 @@ $font-size: 0.9em;
                 padding: 12px 0;
                 max-width: 195px;
                 font-weight: bold;
-                letter-spacing: 0.2px;
             }
 
             .tzantzi_close_notification {

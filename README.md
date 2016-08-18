@@ -1,11 +1,36 @@
-Javascript notifications
+Tzantzi Js Notifications
 ===========================
 
-Js-notifications is a simple plugin and very easy to use for on-screen notifications. You can also use it as an alternative to alert(), alerts look better when they are styled ;)
+Js-notifications is a simple plugin based on javascript for on-screen notifications.
 
-You can use it to show php messages as well (for example session messages);
+Demo
+----------------------------
+http://tzantzi.com/notifications
 
-Note: this plugin relies on javascript and css
+
+Instalation
+----------------------------
+Package can be found on github https://github.com/tzantzi88/js-notifications
+
+**Github**
+
+git clone https://github.com/tzantzi88/js-notifications.git
+
+
+**Bower**
+
+bower install tzantzi-js-notifications
+
+
+How to use
+----------------------------
+```
+Default: showNotification();
+
+All options enabled: showNotification('Centered Message', 'info', 'center');
+
+<a href="#" onclick="showNotification(); return false;">Default: showNotification();</a>
+```
 
 Notification options
 ----------------------------

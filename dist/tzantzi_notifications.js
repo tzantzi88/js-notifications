@@ -1,10 +1,12 @@
 var messages = [];
 var current_notifications = 0;
-var fade_time = 5000;
+var fade_time = 3000;
 var position = 'bottom-right';
 var current_position = position;
 var default_type = 'success';
 var default_message = 'Operation completed successfully';
+var positions = [];
+
 /**
  *
  * @param message
@@ -36,15 +38,10 @@ function checkWrapper(pos) {
         pos = current_position;
         current_position = position;
     }
-    var message_containers = document.getElementsByClassName('tzantzi_notifications');
-    if (message_containers.length) {
-        for(var i=0;i<message_containers.length;i++) {
-            if((message_containers[i].className).indexOf(pos) == -1) {
-                document.body.innerHTML += '<div class="tzantzi_notifications ' + pos + '"><div class="tzantzi_notifications_wrapper"></div></div>';
-            }
-        }
-    } else {
+
+    if (positions.indexOf(pos) == -1 ) {
         document.body.innerHTML += '<div class="tzantzi_notifications ' + pos + '"><div class="tzantzi_notifications_wrapper"></div></div>';
+        positions.push(pos);
     }
 }
 function appendNotification() {
@@ -69,11 +66,12 @@ function appendNotification() {
         animateNotification(current_notifications);
         messages.shift();
 
-        setTimeout(function () {
+        if (messages.length) {
             appendNotification();
-        }, 200);
+        }
 
-        var element = document.querySelector('.tzantzi_close_notification');
+
+        var element = document.querySelectorAll('.tzantzi_close_notification');
 
         for(var i=0;i<element.length;i++){
             element[i].addEventListener('click',function (e) {
@@ -99,7 +97,7 @@ function animateNotification(id) {
     if (id) {
         setTimeout(function () {
             document.getElementById('notif-' + id).className = document.getElementById('notif-' + id).className.replace(/\bremove\b/,'');
-        }, 650);
+        }, 100);
         setTimeout(function () {
             removeNotification(id);
         }, fade_time);
